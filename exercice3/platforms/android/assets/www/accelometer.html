@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accelometer </title>
+    <link rel="stylesheet" type="text/css" href="css/w3.css">
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        var element = document.getElementById('content');
+        
+    }
+
+    var getAcc = function (){
+       navigator.accelerometer.getCurrentAcceleration(onSuccess,onFail);
+}; 
+
+
+    function onSuccess(acc){
+            var content = document.getElementById('content');
+            var str = "Acceleration X: "+acc.x +'\n'+
+            "Acceleration Y: "+acc.y +'\n'+
+            "Acceleration Z: "+acc.z +'\n'+
+            "Timestamp: "+acc.timestamp +'\n';
+
+
+
+        }
+        function onFail(message){
+            alert("Failed because: "+message);
+        }
+
+    var goToDeviceOrientation = function(){
+         window.location = "deviceorientation.html";
+    }
+
+
+    </script>
+  </head>
+  <body>
+        
+<div class="w3-container w3-teal">
+   <h1>Accelometer</h1>
+</div>
+
+
+<div class="w3-container ">
+
+    <div class="w3-container  w3-center">
+<button onclick="getAcc()">Get Acceleration</button>
+        <div id="content">
+
+        </div>
+
+    </div>
+     <button onclick="goToDeviceOrientation()">Device Orientation</button>
+</div>
+ 
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Device Orientation </title>
+    <link rel="stylesheet" type="text/css" href="css/w3.css">
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        var element = document.getElementById('content');
+        
+    }
+
+    var getOrientation = function (){
+       navigator.compass.getCurrentHeading(onSuccess,onFail);
+}; 
+
+
+    function onSuccess(heading){
+            alert("Heading : "+heading.magneticHeading)
+
+
+
+        }
+        function onFail(message){
+            alert("Failed because: "+message);
+        }
+
+    var goToInAppIbrowser = function(){
+         window.location = "inappbrowser.html";
+    }
+
+
+    </script>
+  </head>
+  <body>
+        
+<div class="w3-container w3-teal">
+   <h1>Device Orientation</h1>
+</div>
+
+
+<div class="w3-container ">
+
+    <div class="w3-container  w3-center">
+<button onclick = "getOrientation()">ORIENTATION</button>
+        <div id="content">
+
+        </div>
+
+    </div>
+     <button onclick="goToInAppIbrowser()">InApp Browser</button>
+</div>
+ 
+  </body>
+</html>

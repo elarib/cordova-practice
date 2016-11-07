@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Device Properties </title>
+    <link rel="stylesheet" type="text/css" href="css/w3.css">
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        var element = document.getElementById('content');
+        var tmpStr ='';
+        tmpStr+='<ul class="w3-ul">';
+        tmpStr+='<li>Cordova Version: '+device.cordova+'</li>';
+        tmpStr+='<li>Operating System: '+device.platform+'</li>';
+        tmpStr+='<li>OS Version: '+device.version+'</li>';
+        tmpStr+='<li>Device Model: '+device.model+'</li>';
+        tmpStr+='<li>Universally Unique Identifier: '+device.uuid+'</li>';
+        tmpStr+='</ul>';
+        element.innerHTML = tmpStr;
+
+    }
+
+    var goToConnect = function(){
+         window.location = "connect.html";
+    }
+
+    </script>
+  </head>
+  <body>
+        
+<div class="w3-container w3-teal">
+   <h1>Information sur l'API  Cordova</h1>
+</div>
+
+
+<div class="w3-container ">
+
+    <div class="w3-container  w3-center">
+        <p>
+        L'application fait appel à corodva-plugin-device
+        </p>
+        <div id="content">
+
+        </div>
+
+    </div>
+
+    <button onclick="goToConnect()">Connect</button>
+</div>
+ 
+  </body>
+</html>

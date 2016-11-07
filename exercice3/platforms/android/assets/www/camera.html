@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Camera </title>
+    <link rel="stylesheet" type="text/css" href="css/w3.css">
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        var element = document.getElementById('content');
+
+
+    }
+
+
+    var prendrePhoto = function (){
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+    destinationType: Camera.DestinationType.DATA_URL
+}); 
+        function onSuccess(imageData){
+            var image = document.getElementById('content');
+            image.style.display ='block';
+    image.src = "data:image/jpeg;base64," + imageData;
+
+        }
+        function onFail(message){
+            alert("Failed because: "+message);
+        }
+
+    }
+
+    var goToAccelometer = function(){
+         window.location = "accelometer.html";
+    }
+
+
+    </script>
+  </head>
+  <body>
+        
+<div class="w3-container w3-teal">
+   <h1>Camera Photos</h1>
+</div>
+
+
+<div class="w3-container ">
+
+    <div class="w3-container  w3-center">
+        <button onclick="prendrePhoto()">Prendre Photo</button>
+        <img style="display:none; margin: 0 auto; width: 95%; height: auto," id="content" src="" />
+
+    </div>
+     <button onclick="goToAccelometer()">Accelometer</button>
+</div>
+ 
+  </body>
+</html>

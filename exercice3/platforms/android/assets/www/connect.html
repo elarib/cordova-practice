@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Connect </title>
+    <link rel="stylesheet" type="text/css" href="css/w3.css">
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        var element = document.getElementById('content');
+        var networkState = navigator.connection.type;
+        var states = {};
+        states[Connection.UNKNOWN]='Inconnue';
+        states[Connection.ETHERNET]='Ethernet';
+        states[Connection.WIFI] ='WiFi';
+        states[Connection.CELL_2G]='cellulaire 2G';
+        states[Connection.CELL_3G]='cellulaire 3G';
+        states[Connection.CELL_4G]='cellulaire 4G';
+        states[Connection.CELL] ='générique';
+        states[Connection.NONE] ='aucune';
+        element.innerHTML = "Connexion "+states[networkState];;
+
+    }
+
+    var goToGeolocalisation = function(){
+         window.location = "geolocalisation.html";
+    }
+
+
+    </script>
+  </head>
+  <body>
+        
+<div class="w3-container w3-teal">
+   <h1>Cordova Connection API</h1>
+</div>
+
+
+<div class="w3-container ">
+
+    <div class="w3-container  w3-center">
+
+        <div id="content">
+
+        </div>
+
+    </div>
+     <button onclick="goToGeolocalisation()">GeoLocalisation</button>
+</div>
+ 
+  </body>
+</html>

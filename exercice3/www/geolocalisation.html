@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Device Properties </title>
+    <link rel="stylesheet" type="text/css" href="css/w3.css">
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+    }
+
+    function onSuccess(pos) {
+    document.getElementById('content').innerHTML = 'Latitude: ' +
+    pos.coords.latitude + '<br />' +
+    'Longitude: ' + pos.coords.longitude;
+    }
+    function onError(error) {
+    document.getElementById('content').innerHTML ='code: ' +
+    error.code + '<br />message: ' + error.message;
+    }
+    var goToCamera = function(){
+         window.location = "camera.html";
+    }
+
+    </script>
+  </head>
+  <body>
+        
+<div class="w3-container w3-teal">
+   <h1>Géolocalisation</h1>
+</div>
+
+
+<div class="w3-container ">
+
+    <div class="w3-container  w3-center">
+
+        <div id="content">
+
+        </div>
+
+    </div>
+
+    <button onclick="goToCamera()">Camera</button>
+</div>
+ 
+  </body>
+</html>
